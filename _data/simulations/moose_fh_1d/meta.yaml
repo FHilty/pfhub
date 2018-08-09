@@ -1,0 +1,49 @@
+benchmark:
+  id: 1d
+  version: 1
+data:
+- name: run_time
+  values:
+  - sim_time: 1000000
+    wall_time: 5560
+- name: memory_usage
+  values:
+  - unit: MB
+    value: 2025
+- format:
+    parse:
+      total_energy: number
+      time: number
+    type: csv
+  name: free_energy
+  transform:
+  - as: free_energy
+    expr: datum.total_energy
+    type: formula
+  - as: y
+    expr: datum.free_energy
+    type: formula
+  - as: x
+    expr: datum.time
+    type: formula
+  type: line
+  url: https://gist.githubusercontent.com/FHilty/ed6debf7e2c3c5aae26d5372de29f1cf/raw/9704c6761d88b91d5e0fcb3e2e611b7e147aa628/MOOSE_FH_1d.csv
+  author:
+    email: fhilty@ufl.edu
+    first: F.
+    github_id: FHilty
+    last: Hilty
+  hardware:
+    acc_architecture: none
+    clock_rate: 0
+    cores: 8
+    cpu_architecture: x86_64
+    nodes: 1
+  implementation:
+    container_url: ''
+    name: moose
+    repo:
+      url: https://github.com/FHilty/Benchmarks/blob/master/1d.i
+      version: a001b86
+  summary: Metadata for the Benchmark 1d
+timestamp: 8/9/18
